@@ -19,6 +19,7 @@ export const Input = styled.input`
   border-radius: 2px;
   transition: all 0.3s;
   font-style: 'Open Sans';
+  text-transform: uppercase;
 
   :focus {
     outline: none !important;

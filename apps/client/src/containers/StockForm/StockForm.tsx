@@ -1,8 +1,8 @@
 import React from 'react'
 
+import { Formik, Form, Field, FieldInputProps } from 'formik'
 import Lottie from 'react-lottie'
 
-import { Wrapper } from './style'
 import icon from '~/assets/lottie/bar-chart'
 import { Button, TextField } from '~/components'
 
@@ -25,14 +25,26 @@ export function StockForm() {
         isStopped={false}
         style={{ margin: 'auto' }}
       />
-      <Wrapper className='row center-md center-xs'>
-        <div className='col-xs-12 col-sm-6 col-md-4 col-lg-3'>
-          <TextField placeholder='Insert stock code. Example: AAPL / TWTR' />
-        </div>
-        <div className='col-xs-12 col-sm-2 col-md-1 col-lg-1'>
-          <Button text='Search stock' />
-        </div>
-      </Wrapper>
+
+      <Formik
+        initialValues={{ stock: '' }}
+        onSubmit={values => console.log(values)}
+      >
+        <Form className='row center-md center-xs' style={{ margin: 0 }}>
+          <div className='col-xs-12 col-sm-6 col-md-4 col-lg-3'>
+            <Field
+              id='stock'
+              name='stock'
+              placeholder='Insert stock code. Example: AAPL / TWTR'
+              component={TextField}
+            />
+          </div>
+
+          <div className='col-xs-12 col-sm-2 col-md-1 col-lg-1'>
+            <Button text='Search stock' htmlType='submit' />
+          </div>
+        </Form>
+      </Formik>
     </>
   )
 }

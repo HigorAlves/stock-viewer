@@ -6,6 +6,6 @@ type Props = {
   placeholder: string
 }
 
-export function TextField({ placeholder }: Props) {
-  return <Input placeholder={placeholder} />
+export function TextField({ field, form, ...props }) {
+  return <Input {...field} {...props} />
 }
