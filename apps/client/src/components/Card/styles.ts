@@ -25,6 +25,7 @@ export const Wrapper = styled.div`
   p {
     margin: 0;
     font-weight: 300;
+    margin-bottom: 6px;
   }
 
   h2 {

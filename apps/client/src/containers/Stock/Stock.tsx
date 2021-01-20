@@ -4,15 +4,17 @@ import 'flexboxgrid'
 import growthIcon from '~/assets/lottie/growth'
 import { Button, TextField, Card } from '~/components'
 import { StockInterface } from '~/interfaces/stock'
-import { getStock } from '~/services/iexcloud'
+import { getStock, getBatch, getCompany } from '~/services/iexcloud'
 
-export function StockContainer() {
+export function Stock() {
   const [stock, setStock] = useState<StockInterface>()
-  const [name, setName] = useState<string>('aapl')
+  const [name, setName] = useState<string>('twtr')
 
   async function get(stock: string) {
     const data = await getStock(stock)
     setStock(data)
+    const test = await getCompany('aapl')
+    console.log(test)
   }
 
   return (
@@ -25,7 +27,7 @@ export function StockContainer() {
           <TextField />
         </div>
         <div className='col-xs-12 col-sm-2 col-md-1 col-lg-1'>
-          <Button onClick={() => get(name)} />
+          <Button text='as' onClick={() => get(name)} />
         </div>
       </section>
       <section className='row center-md center-sm' style={{ margin: 0 }}>
@@ -37,12 +39,12 @@ export function StockContainer() {
           />
         </div>
         <div className='col-xs-12 col-sm-3 col-md-4 col-lg-2'>
-          <Card icon={growthIcon} value={stock.change} text='Change' />
+          <Card icon={growthIcon} value={stock?.change || 0} text='Change' />
         </div>
         <div className='col-xs-12 col-sm-3 col-md-4 col-lg-2'>
           <Card
             icon={growthIcon}
-            value={stock.avgTotalVolume}
+            value={stock?.avgTotalVolume || 0}
             text='Total Volume'
           />
         </div>

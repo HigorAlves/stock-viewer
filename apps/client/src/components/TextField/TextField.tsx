@@ -2,6 +2,10 @@ import React from 'react'
 
 import { Input } from './styles'
 
-export function TextField() {
-  return <Input placeholder='tsl' />
+type Props = {
+  placeholder: string
+}
+
+export function TextField({ placeholder }: Props) {
+  return <Input placeholder={placeholder} />
 }
