@@ -1,3 +1,4 @@
-export { default as GithubRepository } from './GithubRepository/GithubRepository'
-export { default as DetailedGithubRepository } from './DetailedGithubRepository/DetailedGithubRepository'
-export { default as RepositoryLanguages } from './RepositoryLanguages/RepositoryLanguages'
+export { JsonLd } from './JSONLD/Jsonld'
+export { TextField } from './TextField/TextField'
+export { Button } from './Button/Button'
+export { Card } from './Card/Card'

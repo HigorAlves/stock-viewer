@@ -14,6 +14,7 @@
     "build": "lerna run build --stream --concurrency 2",
     "test": "lerna run test --stream --concurrency 2",
     "lint": "lerna run lint --stream --concurrency 2",
+    "dev:client": "lerna run dev --stream --scope @jetpack/client",
     "release": "standard-version",
     "release:major": "yarn run release --release-as major --no-verify",
     "release:minor": "yarn run release --release-as minor --no-verify",

@@ -3,12 +3,12 @@ import React from 'react'
 import { AppProps } from 'next/app'
 import Head from 'next/head'
 
-import JsonLd from '~/components/JSONLD/Jsonld'
+import { JsonLd } from '~/components'
 import { getHomeSchema } from '~/services/schema'
 import { StoreProvider } from '~/store'
 import StateInspectorComponent from '~/store/StateInspector'
 
-import '~/assets/styles/globals.scss'
+import '~/assets/styles/reset.css'
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
   return (
@@ -16,7 +16,11 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
       <Head>
         <meta charSet='utf-8' />
         <link rel='icon' href='/favicon.ico' />
-        <title>Nata.House NextJs</title>
+        <link
+          href='https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;600&display=swap'
+          rel='stylesheet'
+        ></link>
+        <title>Stock View NextJs</title>
         <JsonLd
           schema={getHomeSchema({
             title: 'NextJs Boilerplate',
