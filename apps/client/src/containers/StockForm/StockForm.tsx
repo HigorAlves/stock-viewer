@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux'
 
 import icon from '~/assets/lottie/bar-chart'
 import { Button, TextField } from '~/components'
+import { Box } from '~/components/Box/Box'
 import { load } from '~/store/company/actions'
 
 const defaultOptions = {
@@ -25,7 +26,7 @@ export function StockForm() {
   }
 
   return (
-    <>
+    <Box column>
       <Lottie
         options={defaultOptions}
         height={200}
@@ -38,7 +39,7 @@ export function StockForm() {
         initialValues={{ stock: '' }}
         onSubmit={values => submit(values.stock)}
       >
-        <Form className='row center-md center-xs' style={{ margin: 0 }}>
+        <Form className='row center-xs'>
           <div className='col-xs-12 col-sm-6 col-md-4 col-lg-3'>
             <Field
               id='stock'
@@ -53,6 +54,6 @@ export function StockForm() {
           </div>
         </Form>
       </Formik>
-    </>
+    </Box>
   )
 }

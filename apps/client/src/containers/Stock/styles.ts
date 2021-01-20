@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 
-export const Main = styled.main`
-  background-color: 'red';
-  color: 'red';
+export const Wrapper = styled.section`
+  margin-top: 40px !important;
 `

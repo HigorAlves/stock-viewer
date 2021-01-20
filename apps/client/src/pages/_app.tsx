@@ -8,6 +8,7 @@ import { JsonLd } from '~/components'
 import { getHomeSchema } from '~/services/schema'
 import { store } from '~/store'
 
+import 'flexboxgrid'
 import '~/assets/styles/reset.css'
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
