@@ -31,3 +31,5 @@ export function Company() {
     </Box>
   )
 }
+
+export const MemoizedCompany = React.memo(Company)

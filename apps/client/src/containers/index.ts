@@ -1,3 +1,3 @@
-export { Stock } from './Stock/Stock'
-export { Company } from './Company/Company'
+export { Stock, MemoizedStock } from './Stock/Stock'
+export { Company, MemoizedCompany } from './Company/Company'
 export { StockForm } from './StockForm/StockForm'

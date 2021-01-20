@@ -1,50 +1,46 @@
 import React, { useEffect } from 'react'
 
+import { useSelector } from 'react-redux'
 import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip } from 'recharts'
 
 import { Wrapper } from './styles'
 import growthIcon from '~/assets/lottie/growth'
 import { Card } from '~/components'
-import { getBatch } from '~/services/iexcloud'
+import { getStock } from '~/store/stock/selector'
 
 export function Stock() {
-  async function get() {
-    const result = await getBatch('aapl')
-    console.log(result)
-  }
-
-  const data = [
-    {
-      close: 12.83,
-      date: '2021-01-18'
-    },
-    {
-      close: 126.83,
-      date: '2021-01-19'
-    },
-    {
-      close: 129.83,
-      date: '2021-01-20'
-    }
-  ]
-
-  useEffect(() => {
-    get()
-  }, [])
+  const data = useSelector(getStock)
 
   return (
     <Wrapper className='row center-xs'>
       <div className='col-xs-12 col-sm-2 col-md-4 col-lg-2'>
-        <Card icon={growthIcon} value={0} text='Latest Price' />
+        <Card
+          icon={growthIcon}
+          value={data.quote.latestPrice}
+          text='Latest Price'
+        />
       </div>
       <div className='col-xs-12 col-sm-3 col-md-4 col-lg-2'>
-        <Card icon={growthIcon} value={0} text='Change' />
+        <Card
+          icon={growthIcon}
+          value={data.quote.changePercent}
+          text='Change'
+        />
       </div>
       <div className='col-xs-12 col-sm-3 col-md-4 col-lg-2'>
-        <Card icon={growthIcon} value={0} text='Total Volume' />
+        <Card
+          icon={growthIcon}
+          value={data.quote.avgTotalVolume}
+          text='Total Volume'
+        />
       </div>
       <div className='col-xs-12 col-sm-12 col-md-12 col-lg-7'>
-        <LineChart width={600} height={300} data={data} margin={{ top: 60 }}>
+        <LineChart
+          width={600}
+          height={300}
+          data={data.chart}
+          margin={{ top: 60 }}
+        >
           <Line type='monotone' dataKey='close' stroke='#07A88A' />
           <CartesianGrid stroke='#fff' />
           <XAxis dataKey='date' />
@@ -55,3 +51,5 @@ export function Stock() {
     </Wrapper>
   )
 }
+
+export const MemoizedStock = React.memo(Stock)

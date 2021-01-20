@@ -8,6 +8,7 @@ import icon from '~/assets/lottie/bar-chart'
 import { Button, TextField } from '~/components'
 import { Box } from '~/components/Box/Box'
 import { load } from '~/store/company/actions'
+import { load as loadStock } from '~/store/stock/actions'
 
 const defaultOptions = {
   loop: true,
@@ -23,6 +24,7 @@ export function StockForm() {
 
   function submit(stoke: string) {
     dispatch(load(stoke))
+    dispatch(loadStock(stoke))
   }
 
   return (

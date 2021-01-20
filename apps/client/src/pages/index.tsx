@@ -1,14 +1,14 @@
 import React from 'react'
 
 import { Main } from '~/assets/styles/home'
-import { StockForm, Company, Stock } from '~/containers'
+import { StockForm, MemoizedCompany, MemoizedStock } from '~/containers'
 
 export default function Home(): JSX.Element {
   return (
     <Main>
       <StockForm />
-      <Company />
-      <Stock />
+      <MemoizedCompany />
+      <MemoizedStock />
     </Main>
   )
 }
