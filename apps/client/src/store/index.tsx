@@ -1,32 +1,19 @@
-import React, { createContext, useContext } from 'react'
+import { applyMiddleware, createStore, Store, compose } from 'redux'
+import createSagaMiddleware from 'redux-saga'
 
-import { useReducer } from 'reinspect'
+import { CompanyState } from './company/types'
+import { rootReducer } from './rootReducer'
+import { rootSaga } from './rootSaga'
 
-import { initialState, Reducer } from './rootReducer'
-import { selectors as Selector } from './rootSelectors'
-import withThunk from '~/utils/withThunk'
-
-const StoreContext = createContext<StoreTypes.ContextType>({
-  state: initialState
-} as StoreTypes.ContextType)
-
-export const StoreProvider: React.FC<StoreTypes.Props> = ({
-  children
-}: StoreTypes.Props): JSX.Element => {
-  const [state, dispatch] = useReducer(Reducer, initialState)
-
-  return (
-    <StoreContext.Provider value={{ state, dispatch: withThunk(dispatch) }}>
-      {children}
-    </StoreContext.Provider>
-  )
+export interface AppState {
+  company: CompanyState
 }
 
-const useStore = (): StoreTypes.useStore => {
-  const { state, dispatch } = useContext(StoreContext)
-  const selectors = Selector()
+const sagaMiddleware = createSagaMiddleware()
 
-  return { state, dispatch, selectors }
-}
+export const store: Store<AppState> = createStore(
+  rootReducer,
+  applyMiddleware(sagaMiddleware)
+)
 
-export default useStore
+sagaMiddleware.run(rootSaga)

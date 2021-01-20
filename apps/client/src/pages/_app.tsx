@@ -2,11 +2,11 @@ import React from 'react'
 
 import { AppProps } from 'next/app'
 import Head from 'next/head'
+import { Provider } from 'react-redux'
 
 import { JsonLd } from '~/components'
 import { getHomeSchema } from '~/services/schema'
-import { StoreProvider } from '~/store'
-import StateInspectorComponent from '~/store/StateInspector'
+import { store } from '~/store'
 
 import '~/assets/styles/reset.css'
 
@@ -32,11 +32,10 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
           })}
         />
       </Head>
-      <StateInspectorComponent>
-        <StoreProvider>
-          <Component {...pageProps} />
-        </StoreProvider>
-      </StateInspectorComponent>
+
+      <Provider store={store}>
+        <Component {...pageProps} />
+      </Provider>
     </>
   )
 }

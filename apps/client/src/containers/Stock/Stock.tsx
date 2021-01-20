@@ -11,10 +11,10 @@ export function Stock() {
   const [name, setName] = useState<string>('twtr')
 
   async function get(stock: string) {
-    const data = await getStock(stock)
-    setStock(data)
-    const test = await getCompany('aapl')
-    console.log(test)
+    // const data = await getStock(stock)
+    // setStock(data)
+    // const test = await getCompany('aapl')
+    // console.log(test)
   }
 
   return (

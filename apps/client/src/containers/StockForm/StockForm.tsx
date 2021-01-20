@@ -1,10 +1,12 @@
 import React from 'react'
 
-import { Formik, Form, Field, FieldInputProps } from 'formik'
+import { Formik, Form, Field } from 'formik'
 import Lottie from 'react-lottie'
+import { useDispatch } from 'react-redux'
 
 import icon from '~/assets/lottie/bar-chart'
 import { Button, TextField } from '~/components'
+import { load } from '~/store/company/actions'
 
 const defaultOptions = {
   loop: true,
@@ -16,6 +18,12 @@ const defaultOptions = {
 }
 
 export function StockForm() {
+  const dispatch = useDispatch()
+
+  function submit(stoke: string) {
+    dispatch(load(stoke))
+  }
+
   return (
     <>
       <Lottie
@@ -28,7 +36,7 @@ export function StockForm() {
 
       <Formik
         initialValues={{ stock: '' }}
-        onSubmit={values => console.log(values)}
+        onSubmit={values => submit(values.stock)}
       >
         <Form className='row center-md center-xs' style={{ margin: 0 }}>
           <div className='col-xs-12 col-sm-6 col-md-4 col-lg-3'>
