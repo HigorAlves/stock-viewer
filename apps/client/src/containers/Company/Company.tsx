@@ -24,9 +24,7 @@ export function Company() {
         <h3>{company?.website}</h3>
         <h5>{company?.sector}</h5>
 
-        <h5>
-          {company?.country} - {company?.city}
-        </h5>
+        <h5>{company?.zip}</h5>
       </Wrapper>
     </Box>
   )

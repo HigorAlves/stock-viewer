@@ -2,13 +2,15 @@ import React from 'react'
 
 import { Formik, Form, Field } from 'formik'
 import Lottie from 'react-lottie'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 import icon from '~/assets/lottie/bar-chart'
 import { Button, TextField } from '~/components'
 import { Box } from '~/components/Box/Box'
 import { load } from '~/store/company/actions'
+import { hasError as hasCompanyError } from '~/store/company/selector'
 import { load as loadStock } from '~/store/stock/actions'
+import { hasError as hasStockError } from '~/store/stock/selector'
 
 const defaultOptions = {
   loop: true,
@@ -21,6 +23,8 @@ const defaultOptions = {
 
 export function StockForm() {
   const dispatch = useDispatch()
+  const errorCompany = useSelector(hasCompanyError)
+  const errorStock = useSelector(hasStockError)
 
   function submit(stoke: string) {
     dispatch(load(stoke))
@@ -29,13 +33,23 @@ export function StockForm() {
 
   return (
     <Box column>
-      <Lottie
-        options={defaultOptions}
-        height={200}
-        width={200}
-        isStopped={false}
-        style={{ margin: 'auto' }}
-      />
+      {errorCompany && errorStock ? (
+        <Lottie
+          options={defaultOptions}
+          height={200}
+          width={200}
+          isStopped={false}
+          style={{ margin: 'auto' }}
+        />
+      ) : (
+        <Lottie
+          options={defaultOptions}
+          height={200}
+          width={200}
+          isStopped={false}
+          style={{ margin: 'auto' }}
+        />
+      )}
 
       <Formik
         initialValues={{ stock: '' }}

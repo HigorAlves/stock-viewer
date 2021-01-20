@@ -17,7 +17,12 @@ export const companyReducer: Reducer<CompanyState> = (
     case CompanyTypes.GET_DATA:
       return { ...state, loading: true, stock: action.payload.stock }
     case CompanyTypes.SUCCESS:
-      return { ...state, loading: false, data: action.payload.data }
+      return {
+        ...state,
+        loading: false,
+        error: false,
+        data: action.payload.data
+      }
     case CompanyTypes.FAILURE:
       return { ...state, loading: false, error: action.payload.error }
 

@@ -16,7 +16,12 @@ export const stockReducer: Reducer<StockState> = (
     case StockTypes.GET_DATA:
       return { ...state, loading: true }
     case StockTypes.SUCCESS:
-      return { ...state, loading: false, data: action.payload.data }
+      return {
+        ...state,
+        loading: false,
+        error: false,
+        data: action.payload.data
+      }
     case StockTypes.FAILURE:
       return { ...state, loading: false, error: action.payload.error }
 
