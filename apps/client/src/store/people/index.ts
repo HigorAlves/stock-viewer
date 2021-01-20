@@ -1,5 +1,3 @@
-/* istanbul ignore file */
-
 import * as PeopleActions from './actions'
 import * as PeopleReducer from './reducer'
 import * as PeopleSelectors from './selectors'

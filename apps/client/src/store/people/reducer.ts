@@ -12,10 +12,8 @@ export function reducer(
   switch (action.type) {
     case PeopleTypes.Types.CHANGE_TEXT:
       return { ...state, message: action.payload.message }
-
-    case PeopleTypes.Types.UPDATE:
+    case PeopleTypes.Types.UPDATE_PEOPLE:
       return { ...state, people: action.payload.people }
-
     default:
       return state
   }

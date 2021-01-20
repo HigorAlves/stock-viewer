@@ -1,6 +1,6 @@
-# https://www.robotstxt.org/robotstxt.html
+Sitemap: https://example.com/api/sitemap
+
 User-agent: *
 Allow: /*
-Disallow:
 
-Sitemap: https://example.com.br/sitemap.xml
+Disallow: /api/*

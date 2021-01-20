@@ -2,9 +2,9 @@ import React, { createContext, useContext } from 'react'
 
 import { useReducer } from 'reinspect'
 
-import { initialState, Reducer } from 'store/rootReducer'
-import { selectors as Selector } from 'store/rootSelectors'
-import withThunk from 'store/withThunk'
+import { initialState, Reducer } from './rootReducer'
+import { selectors as Selector } from './rootSelectors'
+import withThunk from '~/utils/withThunk'
 
 const StoreContext = createContext<StoreTypes.ContextType>({
   state: initialState
@@ -13,12 +13,7 @@ const StoreContext = createContext<StoreTypes.ContextType>({
 export const StoreProvider: React.FC<StoreTypes.Props> = ({
   children
 }: StoreTypes.Props): JSX.Element => {
-  const [state, dispatch] = useReducer(
-    Reducer,
-    initialState,
-    state => state,
-    'store'
-  )
+  const [state, dispatch] = useReducer(Reducer, initialState)
 
   return (
     <StoreContext.Provider value={{ state, dispatch: withThunk(dispatch) }}>

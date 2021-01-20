@@ -1,11 +1,9 @@
 import React from 'react'
 
-import { GitHubReducer } from './github'
 import { PeopleReducer } from './people'
 
 export const initialState: StoreTypes.StateType = {
-  people: PeopleReducer.InitialState,
-  github: GitHubReducer.InitialState
+  people: PeopleReducer.InitialState
 }
 
 export const Reducer: React.Reducer<
@@ -13,7 +11,6 @@ export const Reducer: React.Reducer<
   StoreTypes.ActionTypes
 > = (state: StoreTypes.StateType, action: StoreTypes.ActionTypes) => {
   return {
-    people: PeopleReducer.reducer(state.people, action),
-    github: GitHubReducer.reducer(state.github, action)
+    people: PeopleReducer.reducer(state.people, action)
   }
 }

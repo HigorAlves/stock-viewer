@@ -1,13 +1,11 @@
 type PeopleTypes = import('./people/types')
-type GitHubTypes = import('./github/types')
 
 declare namespace StoreTypes {
   type StateType = {
     people: PeopleTypes.State
-    github: GitHubTypes.State
   }
 
-  type ActionTypes = PeopleTypes.Actions & GitHubTypes.Actions
+  type ActionTypes = PeopleTypes.Actions
 
   type ContextType = {
     state: StateType
@@ -15,8 +13,7 @@ declare namespace StoreTypes {
   }
 
   type Selector = {
-    people: import('./people/types').Selector
-    github: import('./github/types').Selector
+    people: PeopleTypes.Selector
   }
 
   type useStore = {

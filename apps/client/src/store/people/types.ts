@@ -1,20 +1,18 @@
-/* istanbul ignore file */
-
 export type State = {
   message: string
   people: string[]
 }
 
 export enum Types {
-  CHANGE_TEXT = 'people/CHANGE_TEXT',
-  UPDATE = 'people/UPDATE'
+  CHANGE_TEXT = 'CHANGE_TEXT',
+  UPDATE_PEOPLE = 'UPDATE_PEOPLE'
 }
 
 export type Payload = {
   [Types.CHANGE_TEXT]: {
     message: string
   }
-  [Types.UPDATE]: {
+  [Types.UPDATE_PEOPLE]: {
     people: string[]
   }
 }
