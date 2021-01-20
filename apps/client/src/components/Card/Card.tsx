@@ -2,9 +2,7 @@ import React from 'react'
 
 import Lottie from 'react-lottie'
 
-import { CardComp } from './styles'
-import decreaseIcon from '~/assets/lottie/decrease'
-import growthIcon from '~/assets/lottie/growth'
+import { CardComp, Wrapper } from './styles'
 
 const defaultOptions = {
   loop: true,
@@ -15,22 +13,28 @@ const defaultOptions = {
 }
 
 type Props = {
-  growth: boolean
+  value: number
+  text: string
+  icon: any
 }
 
-export function Card({ growth }: Props) {
+export function Card({ icon, text, value }: Props) {
   return (
     <CardComp>
       <Lottie
         options={{
           ...defaultOptions,
-          animationData: growth ? growthIcon : decreaseIcon
+          animationData: icon
         }}
         height={60}
         width={60}
         isStopped={false}
+        style={{ margin: 0, padding: 0 }}
       />
-      <p>um valor normal pra ca</p>
+      <Wrapper>
+        <p>{text}</p>
+        <h2>{value}</h2>
+      </Wrapper>
     </CardComp>
   )
 }

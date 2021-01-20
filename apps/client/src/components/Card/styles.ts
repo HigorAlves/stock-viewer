@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const CardComp = styled.button`
   display: flex;
   align-items: center;
-  font-weight: 600;
+  justify-content: space-between;
   color: #fff;
   border: 0.7px solid #20222a;
   border-radius: 6px;
@@ -13,4 +13,21 @@ export const CardComp = styled.button`
   padding: 4px 15px;
   outline: none;
   background-color: #20222a;
+  min-width: 200px;
+`
+
+export const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-left: 14px;
+
+  p {
+    margin: 0;
+    font-weight: 300;
+  }
+
+  h2 {
+    margin: 0;
+  }
 `
