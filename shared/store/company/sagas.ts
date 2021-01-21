@@ -1,9 +1,10 @@
 import { call, put } from 'redux-saga/effects'
 
-import { getCompany } from '~/services/iexcloud'
-import { loadSuccess, loadFailure } from '~/store/company/actions'
+import { getCompany } from '../services/index'
+import { loadSuccess, loadFailure } from './actions'
+import { LoadData } from './types'
 
-export function* load(action) {
+export function* load(action: LoadData) {
   try {
     const { stock } = action.payload
     const response = yield call(getCompany, stock)

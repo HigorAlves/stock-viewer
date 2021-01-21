@@ -6,7 +6,7 @@ import { Provider } from 'react-redux'
 
 import { JsonLd } from '~/components'
 import { getHomeSchema } from '~/services/schema'
-import { store } from '~/store'
+import { store } from '@jetpack/store'
 
 import 'flexboxgrid'
 import '~/assets/styles/reset.css'

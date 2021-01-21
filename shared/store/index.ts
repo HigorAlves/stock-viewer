@@ -1,4 +1,4 @@
-import { applyMiddleware, createStore, Store, compose } from 'redux'
+import { applyMiddleware, createStore, Store } from 'redux'
 import createSagaMiddleware from 'redux-saga'
 
 import { CompanyState } from './company/types'

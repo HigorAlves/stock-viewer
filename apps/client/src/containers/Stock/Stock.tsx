@@ -13,8 +13,9 @@ import {
 
 import { Wrapper } from './styles'
 import growthIcon from '~/assets/lottie/growth'
+import decreaseIcon from '~/assets/lottie/decrease'
 import { Card } from '~/components'
-import { getStock } from '~/store/stock/selector'
+import { getStock } from '@jetpack/store/stock/selector'
 
 export function Stock() {
   const data = useSelector(getStock)
@@ -30,7 +31,7 @@ export function Stock() {
       </div>
       <div className='col-xs-12 col-sm-3 col-md-4 col-lg-2'>
         <Card
-          icon={growthIcon}
+          icon={data?.quote.changePercent > 0 ? growthIcon : decreaseIcon}
           value={data?.quote.changePercent || 0}
           text='Change'
         />

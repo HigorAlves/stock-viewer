@@ -8,7 +8,7 @@ const INITIAL_STATE: StockState = {
   loading: false
 }
 
-export const stockReducer: Reducer<StockState> = (
+export const stockReducer: Reducer<StockState, StockActions> = (
   state = INITIAL_STATE,
   action: StockActions
 ) => {

@@ -4,8 +4,8 @@ import { useSelector } from 'react-redux'
 
 import { Wrapper } from './styles'
 import { Box } from '~/components/Box/Box'
-import { getCompany } from '~/store/company/selector'
-import { RootState } from '~/store/rootReducer'
+import { getCompany } from '@jetpack/store/company/selector'
+import { RootState } from '@jetpack/store/rootReducer'
 
 export function Company() {
   const company = useSelector((state: RootState) => getCompany(state))

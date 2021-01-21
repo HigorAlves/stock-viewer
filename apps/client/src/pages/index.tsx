@@ -1,14 +1,14 @@
 import React from 'react'
 
-import { useSelector, useStore } from 'react-redux'
+import { useSelector } from 'react-redux'
 
 import { Main } from '~/assets/styles/home'
 import { StockForm, MemoizedCompany, MemoizedStock } from '~/containers'
 import {
   hasError as hasCompanyError,
   getCompany
-} from '~/store/company/selector'
-import { hasError as hasStockError } from '~/store/stock/selector'
+} from '@jetpack/store/company/selector'
+import { hasError as hasStockError } from '@jetpack/store/stock/selector'
 
 export default function Home(): JSX.Element {
   const errorCompany = useSelector(hasCompanyError)

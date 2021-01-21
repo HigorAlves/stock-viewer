@@ -32,7 +32,7 @@ export interface CompanyState {
   readonly data: Company | null
   readonly loading: boolean
   readonly error: boolean
-  readonly stock: string
+  readonly stock: string | null
 }
 
 /**

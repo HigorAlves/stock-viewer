@@ -1,4 +1,6 @@
 const withPlugins = require('next-compose-plugins')
+const withTM = require('next-transpile-modules')(['@jetpack/store']);
+
 
 const nextConfig = {
   webpack: (config, { isServer }) => {
@@ -25,4 +27,5 @@ const nextConfig = {
   }
 }
 
-module.exports = withPlugins([], nextConfig)
+
+module.exports = withPlugins([withTM], nextConfig)

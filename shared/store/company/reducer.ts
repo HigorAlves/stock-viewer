@@ -9,7 +9,7 @@ const INITIAL_STATE: CompanyState = {
   stock: null
 }
 
-export const companyReducer: Reducer<CompanyState> = (
+export const companyReducer: Reducer<CompanyState, CompanyActions> = (
   state = INITIAL_STATE,
   action: CompanyActions
 ) => {

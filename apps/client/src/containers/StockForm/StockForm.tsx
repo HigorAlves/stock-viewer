@@ -8,9 +8,9 @@ import icon from '~/assets/lottie/bar-chart'
 import { Button, TextField } from '~/components'
 import { Box } from '~/components/Box/Box'
 import { load } from '~/store/company/actions'
-import { hasError as hasCompanyError } from '~/store/company/selector'
-import { load as loadStock } from '~/store/stock/actions'
-import { hasError as hasStockError } from '~/store/stock/selector'
+import { hasError as hasCompanyError } from '@jetpack/store/company/selector'
+import { load as loadStock } from '@jetpack/store/stock/actions'
+import { hasError as hasStockError } from '@jetpack/store/stock/selector'
 
 const defaultOptions = {
   loop: true,
