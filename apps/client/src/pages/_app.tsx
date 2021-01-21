@@ -20,7 +20,7 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
         <link
           href='https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;600&display=swap'
           rel='stylesheet'
-        ></link>
+        />
         <title>Stock View NextJs</title>
         <JsonLd
           schema={getHomeSchema({

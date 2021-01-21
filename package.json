@@ -5,16 +5,28 @@
   "license": "MIT",
   "repository": "git@github.com:HigorAlves/jetpack-stack.git",
   "private": true,
-  "workspaces": [
-    "apps/*",
-    "packages/*",
-    "shared/*"
-  ],
+  "workspaces": {
+    "packages": [
+      "apps/*",
+      "packages/*",
+      "shared/*"
+    ],
+    "nohoist": [
+      "react-native",
+      "**/react-native",
+      "**/react-native/**",
+      "react-native/**",
+      "**/@react-native-community/**",
+      "react-native-linear-gradient"
+    ]
+  },
   "scripts": {
+    "client:dev": "lerna run dev --stream --scope @jetpack/client",
+    "mobile:start": "lerna run start --stream --scope @jetpack/mobile",
+    "mobile:android": "lerna run android --stream --scope @jetpack/mobile",
     "build": "lerna run build --stream --concurrency 2",
     "test": "lerna run test --stream --concurrency 2",
     "lint": "lerna run lint --stream --concurrency 2",
-    "dev:client": "lerna run dev --stream --scope @jetpack/client",
     "release": "standard-version",
     "release:major": "yarn run release --release-as major --no-verify",
     "release:minor": "yarn run release --release-as minor --no-verify",
@@ -40,6 +52,7 @@
     "@commitlint/config-lerna-scopes": "^11.0.0",
     "@typescript-eslint/eslint-plugin": "^4.9.1",
     "@typescript-eslint/parser": "^4.9.1",
+    "@react-native-community/eslint-config": "^2.0.0",
     "commitlint": "^11.0.0",
     "eslint": "^7.15.0",
     "eslint-config-prettier": "^7.0.0",
