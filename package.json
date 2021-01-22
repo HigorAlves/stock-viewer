@@ -10,18 +10,11 @@
       "apps/*",
       "packages/*",
       "shared/*"
-    ],
-    "nohoist": [
-      "react-native",
-      "**/react-native",
-      "**/react-native/**",
-      "react-native/**",
-      "**/@react-native-community/**",
-      "@jetpack/store"
     ]
   },
   "scripts": {
     "client:dev": "lerna run dev --stream --scope @jetpack/client",
+    "client:start": "lerna run start --stream --scope @jetpack/client",
     "mobile:start": "lerna run start --stream --scope @jetpack/mobile",
     "mobile:android": "lerna run android --stream --scope @jetpack/mobile",
     "build": "lerna run build --stream --concurrency 2",
